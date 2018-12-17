@@ -12,19 +12,20 @@ public class Reader {
         try {
             FileReader reader = new FileReader("C:\\Drivers\\MCB07l_Test_BlinckLED_Boot.hex");
             BufferedReader read = new BufferedReader(reader);
-            // считаем сначала первую строку
-            /*String line = read.readLine();*/
-            String line = null;
+         
+            String line = null;           
+            // считываем остальные строки в цикле
             while ((line = read.readLine()) != null) {
                 System.out.println(line);
                 line = read.readLine();
-                // считываем остальные строки в цикле
 
-            }
-            byte[] str = new byte[line.length()];
-            for (int i = 0; i < line.length(); i++)
-                str[i] = (byte) Integer.parseInt((line), 16);
-            System.out.printf("%X ", str);
+                byte[] str = new byte[line.length()];
+                for (int i = 0; i < line.length(); i++) {
+                    str[i] = (byte) Integer.parseInt((line), 16);
+                }
+                
+                System.out.printf("%X ", str);               
+            }         
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
