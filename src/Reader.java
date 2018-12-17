@@ -13,7 +13,7 @@ public class Reader {
             FileReader reader = new FileReader("C:\\Drivers\\MCB07l_Test_BlinckLED_Boot.hex");
             BufferedReader read = new BufferedReader(reader);
          
-            String line = null;           
+            String line;           
             // считываем остальные строки в цикле
             while ((line = read.readLine()) != null) {
                 System.out.println(line);
