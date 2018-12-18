@@ -4,6 +4,8 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import java.io.*;
 import java.sql.Array;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static java.lang.String.valueOf;
 
@@ -21,6 +23,14 @@ public class Reader {
             while (line != null) {
                 System.out.println(line);
                 line = read.readLine();
+                Pattern p = Pattern.compile(":(.*)");
+                Matcher m = p.matcher(line);
+                while (m.find()) {
+                    line = m.group(1);
+                }
+
+                /*System.out.println(line);*/
+
 
 
            /* while (line != null);
@@ -28,7 +38,7 @@ public class Reader {
                 System.out.println(line);
                 line = read.readLine();*/
 
-                String[] lines = line.split("(?<=\\\\G.{2})");
+                /*String[] lines = line.split("(?<=\\\\G.{2})");
                 System.out.println(Arrays.toString(lines));
                 byte[] data = new byte[lines.length];
                 for (int i = 0; i < lines.length; i++) {
@@ -36,7 +46,7 @@ public class Reader {
                     System.out.printf(HexBin.encode(data));
 
                     System.out.printf("%X ", data);
-                }
+                }*/
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
