@@ -20,9 +20,9 @@ public class Reader {
             String s = ":10385000814F0008814F0008814F0008814F000808";
             String line = read.readLine();
             /*System.out.println(line);*/
-            while (line != null) {
+           /* while (line != null) {
                 System.out.println(line);
-                line = read.readLine();
+                line = read.readLine();*/
                 Pattern p = Pattern.compile(":(.*)");
                 Matcher m = p.matcher(line);
                 while (m.find()) {
@@ -37,18 +37,26 @@ public class Reader {
             {
                 System.out.println(line);
                 line = read.readLine();*/
-
-                String[] lines = line.split("(?<=\\\\G.{2})");
+                                String [] SS = new String [line.length()/2];
+                int k = 0;  //счетчик для индексов  массива
+                for(int i=0;i<line.length()-1;i=i+2) { // проход по массиву через каждые 2 символа для нахождения новой подстроки
+                    String S1 = line.substring(i, i+2); // нахождение подстроки с длиной в 2 символа
+                    SS[k++]=S1; // присваивание  подстроки к элементу массива
+                }
+                System.out.println(Arrays.toString(SS));
+                byte[] data = new byte[SS.length];
+                for (int i = 0; i < SS.length; i++) {
+                    data[i] = (byte) Integer.parseInt(SS[i], 16);
+                    System.out.printf(HexBin.encode(data));
+                }
+               /* String[] lines = line.split("(?<=\\\\G.{2})");
                 System.out.println(Arrays.toString(lines));
                 String qwe = lines[1];
-                System.out.println(qwe);
-                /* byte[] data = new byte[lines.length];
-                 *//*for (int i = 0; i < lines.length; i++) {*//*
-                    data[i] = (byte) Integer.parseInt(lines[i],16);
-                    System.out.printf(HexBin.encode(data));*/
+                System.out.println(qwe);*/
+
 
                 /*System.out.printf("%X ", data);*/
-            }
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
