@@ -18,7 +18,7 @@ public class Reader {
             FileReader reader = new FileReader("C:\\Drivers\\MCB07l_Test_BlinckLED_Boot.hex");
             BufferedReader read = new BufferedReader(reader);
             String s = ":10385000814F0008814F0008814F0008814F000808";
-            String line = read.readLine();
+            String line = ":10385000814F0008814F0008814F0008814F000808";
             /*System.out.println(line);*/
            /* while (line != null) {
                 System.out.println(line);
@@ -37,7 +37,7 @@ public class Reader {
             {
                 System.out.println(line);
                 line = read.readLine();*/
-                                String [] SS = new String [line.length()/2];
+                String [] SS = new String [line.length()/2];
                 int k = 0;  //счетчик для индексов  массива
                 for(int i=0;i<line.length()-1;i=i+2) { // проход по массиву через каждые 2 символа для нахождения новой подстроки
                     String S1 = line.substring(i, i+2); // нахождение подстроки с длиной в 2 символа
@@ -46,8 +46,10 @@ public class Reader {
                 System.out.println(Arrays.toString(SS));
                 byte[] data = new byte[SS.length];
                 for (int i = 0; i < SS.length; i++) {
-                    data[i] = (byte) Integer.parseInt(SS[i], 16);
-                    System.out.printf(HexBin.encode(data));
+
+                    data[i] = (byte) Integer.parseInt(SS[i],16);
+
+                    System.out.printf("%02X ",(data[i]));
                 }
                /* String[] lines = line.split("(?<=\\\\G.{2})");
                 System.out.println(Arrays.toString(lines));
