@@ -38,22 +38,25 @@ public class Reader {
                 System.out.println(line);
                 line = read.readLine();*/
 
-                String [] lines = line.split("(?<=\\\\G.{2})");
+                String[] lines = line.split("(?<=\\\\G.{2})");
                 System.out.println(Arrays.toString(lines));
-
-               /* byte[] data = new byte[lines.length];
-                *//*for (int i = 0; i < lines.length; i++) {*//*
-                    data[0] = (byte) Integer.parseInt(lines[0],16);
+                String qwe = lines[1];
+                System.out.println(qwe);
+                /* byte[] data = new byte[lines.length];
+                 *//*for (int i = 0; i < lines.length; i++) {*//*
+                    data[i] = (byte) Integer.parseInt(lines[i],16);
                     System.out.printf(HexBin.encode(data));*/
 
-                    /*System.out.printf("%X ", data);*/
-                }
+                /*System.out.printf("%X ", data);*/
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NullPointerException ex) {
+            System.out.println(ex);
+        } catch (ArrayIndexOutOfBoundsException ex) {
             System.out.println(ex);
         }
 
