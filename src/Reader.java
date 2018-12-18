@@ -18,18 +18,23 @@ public class Reader {
             while (line != null) {
                 System.out.println(line);
                 line = read.readLine();
-            }
+
+
            /* while (line != null);
             {
                 System.out.println(line);
                 line = read.readLine();*/
 
-            byte[] data = new byte[s.length() / 2];
-            for (int i = 0; i < s.length(); i++) {
-                data[i] = (byte) (Integer.parseInt(s,16));
-                System.out.printf(HexBin.encode(data));
-            }
+                String[] lines = line.split("", 2);
+                System.out.println(lines.toString());
+               /* byte[] data = new byte[lines.length];
+                for (int i = 0; i < lines.length; i++) {
+                    data[i] = (byte) Integer.parseInt(lines[i],16);
+                    System.out.printf(HexBin.encode(data));
 
+                    *//*System.out.printf("%X ", data);*//*
+                }*/
+            }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
