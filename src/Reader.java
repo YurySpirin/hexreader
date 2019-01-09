@@ -8,14 +8,12 @@ import java.util.regex.Pattern;
 import static java.lang.String.valueOf;
 
 public class Reader {
-    private byte [] str;
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         try {
             FileReader reader = new FileReader("C:\\Drivers\\MCB07l_Test_BlinckLED_Boot.hex");
             BufferedReader read = new BufferedReader(reader);
-            String s = ":10385000814F0008814F0008814F0008814F000808";
             String line = new String();
             while (line != null) {
                 line = read.readLine();
@@ -32,7 +30,6 @@ public class Reader {
                 }
                 byte[] data = new byte[SS.length];
                 for (int i = 0; i < SS.length; i++) {
-
                     data[i] = (byte) Integer.parseInt(SS[i], 16);
                 }
                 System.out.println(HexBin.encode(data));
