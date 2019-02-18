@@ -15,7 +15,7 @@ public class Window extends JFrame {
         //Создаем окно
         JFrame wind = new JFrame();
         wind.setTitle("HexReader");
-        wind.setSize(400, 800);
+        wind.setSize(400, 400);
         wind.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         wind.setVisible(true);
         //создаем кнопку
