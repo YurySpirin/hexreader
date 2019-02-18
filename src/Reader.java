@@ -1,5 +1,8 @@
 import com.sun.istack.internal.NotNull;
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
+
+import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.sql.Array;
 import java.util.Arrays;
@@ -10,9 +13,11 @@ import static java.lang.String.valueOf;
 public class Reader {
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        Window hexReader = new Window();
 
         try {
-            FileReader reader = new FileReader("C:\\Drivers\\MCB07l_Test_BlinckLED_Boot.hex");
+            System.out.println(Window.reader);
+            FileReader reader = new FileReader(Window.reader);
             BufferedReader read = new BufferedReader(reader);
             String line = new String();
             while (line != null) {
