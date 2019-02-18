@@ -15,7 +15,7 @@ public class Window extends JFrame {
         //Создаем окно
         JFrame wind = new JFrame();
         wind.setTitle("HexReader");
-        wind.setSize(400, 400);
+        wind.setSize(600, 600);
         wind.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         wind.setVisible(true);
         //создаем кнопку
@@ -27,7 +27,22 @@ public class Window extends JFrame {
         chooser.setActionCommand("Pressed");
         ActionListener actionListener = new ChooseButton();
         chooser.addActionListener(actionListener);
-            }
+
+        JButton chooseComm = new JButton("Выбрать Comm");
+        wind.add(chooseComm);
+        chooseComm.setVisible(true);
+        chooseComm.setLocation(250,50);
+        chooseComm.setSize(150,30);
+        chooseComm.setActionCommand("Pressed");
+        ActionListener chooseCommPort = new ChooseCommPort();
+        chooseComm.addActionListener(chooseCommPort);
+
+        JTextField comports = new JTextField(String.valueOf(ChooseCommPort.ports[0]+ChooseCommPort.ports[1]));
+        wind.add(comports);
+        comports.setVisible(true);
+        comports.setLocation(200,200);
+        comports.setSize(100,100);
+        }
 }
 
 
