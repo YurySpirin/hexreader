@@ -41,12 +41,12 @@ public class Window extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 ports = SerialPortList.getPortNames();
                 for (int i = 0; i < ports.length; i++) {
-                    JTextField comports = new JTextField();
+                    JComboBox comports = new JComboBox(ports);
                     wind.add(comports);
                     comports.setVisible(true);
                     comports.setLocation(200, 200);
-                    comports.setSize(100, 100);
-                    comports.setText(ports[i]);
+                    comports.setSize(70, 50);
+                    comports.setEditable(true);
                 }
             }
         });
