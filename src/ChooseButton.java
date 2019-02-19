@@ -55,8 +55,6 @@ public class ChooseButton implements ActionListener {
             } catch (ArrayIndexOutOfBoundsException ex) {
                 System.out.println(ex);
             }
-
-
         }
     }
 }
