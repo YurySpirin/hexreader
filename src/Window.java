@@ -1,10 +1,9 @@
 import jssc.SerialPortList;
 
-import javax.management.StringValueExp;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.beans.PropertyChangeListener;
 import java.io.FileNotFoundException;
 
 
@@ -44,9 +43,9 @@ public class Window extends JFrame {
                     JComboBox comports = new JComboBox(ports);
                     wind.add(comports);
                     comports.setVisible(true);
-                    comports.setLocation(200, 200);
-                    comports.setSize(70, 50);
-                    comports.setEditable(true);
+                    comports.setLocation(200,200);
+                    comports.setSize(70,50);
+                    //comports.setEditable(true);
                 }
             }
         });
