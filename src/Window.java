@@ -29,6 +29,13 @@ public class Window extends JFrame {
         ActionListener actionListener = new ChooseButton();
         chooser.addActionListener(actionListener);
         //создаем кнопку опроса ком портов
+        JComboBox comports = new JComboBox();
+        wind.add(comports);
+        comports.setVisible(true);
+        comports.setLocation(250,100);
+        comports.setSize(150,50);
+
+
         JButton chooseComm = new JButton("Выбрать Comm");
         wind.add(chooseComm);
         chooseComm.setVisible(true);
@@ -38,16 +45,11 @@ public class Window extends JFrame {
         chooseComm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                comports.removeAllItems();
                 ports = SerialPortList.getPortNames();
-                for (int i = 0; i < ports.length; i++) {
-                    JComboBox comports = new JComboBox(ports);
-                    wind.add(comports);
-                    comports.setVisible(true);
-                    comports.setLocation(200,200);
-                    comports.setSize(70,50);
-                    //comports.setEditable(true);
-                }
+                comports.addItem(ports);
+                //comports.setSelectedItem(ports);
             }
         });
-    }
-    }
+   }
+}
